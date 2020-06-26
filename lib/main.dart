@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 filled: true,
-                fillColor: Colors.grey[150],
+                fillColor: Colors.grey[200],
                 contentPadding: EdgeInsets.all(20),
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(left: 16.0, right: 8.0),
@@ -108,11 +108,103 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
+            SizedBox(
+              height: 24,
+            ),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    menuOption("Flights", SimpleLineIcons.plane, true),
+                    SizedBox(width: 24,),
+                    menuOption("Hotels", MaterialCommunityIcons.room_service_outline, false),
+                    SizedBox(width: 24,),
+                    menuOption("Holidays", Feather.sun, false),
+                  ],
+                ),
+
+                SizedBox(height: 24,),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    menuOption("Bus", FontAwesome.bus, false),
+                    SizedBox(width: 24,),
+                    menuOption("Cabs", FontAwesome.cab, false),
+                    SizedBox(width: 24,),
+                    menuOption("Trains", MaterialCommunityIcons.train, false),
+                  ],
+                ),
+
+                SizedBox(height: 24,),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    menuOption("Homes", AntDesign.home, false),
+                    SizedBox(width: 24,),
+                    menuOption("Gift Cards", MaterialIcons.card_giftcard, false),
+                    SizedBox(width: 24,),
+                    menuOption("More", MaterialIcons.more_horiz, false),
+                  ],
+                )
+
+              ],
+            )
+
           ],
         ),
       ),
       bottomNavigationBar: Text(
         "bottomNavigationBar",
+      ),
+    );
+  }
+
+  Widget menuOption(String title, IconData iconData, bool selected){
+    return Expanded(
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Container(
+          decoration: BoxDecoration(
+            color: selected ? Color(0xFFFF5A5F) : Colors.grey[200],
+            borderRadius: BorderRadius.all(
+              Radius.circular(25),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: selected ? Color(0xFFFF5A5F).withOpacity(0.2) : Colors.transparent,
+                spreadRadius: 4,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                iconData,
+                size: 32,
+                color: selected ? Colors.white : Colors.grey[500],
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                title,
+                style: TextStyle(
+                  color: selected ? Colors.white : Colors.grey[500],
+                  fontSize: 18,
+                )
+              )
+            ],
+          )
+        ),
       ),
     );
   }
