@@ -32,135 +32,210 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
-        child: Column(
-          children: <Widget>[
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: Padding(
+          padding: EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
 
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
+              Icon(
+                Icons.menu,
+                color: Color(0xFFFF5A5F),
+              ),
 
-                Icon(
-                  Icons.menu,
-                  color: Color(0xFFFF5A5F),
+              SizedBox(
+                height: 70,
+                child: Image.asset(
+                  'assets/images/logo.png',
                 ),
+              ),
 
-                SizedBox(
-                  height: 70,
-                  child: Image.asset(
-                    'assets/images/logo.png',
+              Stack(
+                children: <Widget>[
+                  Icon(
+                    Icons.notifications_none,
+                    color: Colors.grey[300],
                   ),
-                ),
-
-                Stack(
-                  children: <Widget>[
-                    Icon(
-                      Icons.notifications_none,
-                      color: Colors.grey[300],
+                  Positioned(
+                    top: 0.0,
+                    right: 0.0,
+                    child: Icon(
+                      Icons.brightness_1, 
+                      size: 8.0, 
+                      color: Color(0xFFFF5A5F),
                     ),
-                    Positioned(
-                      top: 0.0,
-                      right: 0.0,
-                      child: Icon(
-                        Icons.brightness_1, 
-                        size: 8.0, 
-                        color: Color(0xFFFF5A5F),
-                      ),
-                    ),
-                  ]
-                ),
-
-              ],
-            ),
-
-            SizedBox(
-              height: 8,
-            ),
-
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                hintStyle: TextStyle(
-                  fontSize: 18,
-                  color: Colors.grey[400],
-                  fontWeight: FontWeight.bold,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    width: 0, 
-                    style: BorderStyle.none,
                   ),
-                ),
-                filled: true,
-                fillColor: Colors.grey[200],
-                contentPadding: EdgeInsets.all(20),
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 16.0, right: 8.0),
-                  child: Icon(
-                    Icons.search,
+                ]
+              ),
+
+            ],
+          ),
+        ),
+      ),
+
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Column(
+            children: <Widget>[
+
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  hintStyle: TextStyle(
+                    fontSize: 18,
                     color: Colors.grey[400],
-                    size: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(
+                      width: 0, 
+                      style: BorderStyle.none,
+                    ),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[200],
+                  contentPadding: EdgeInsets.all(20),
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.only(left: 16.0, right: 8.0),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.grey[400],
+                      size: 28,
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            SizedBox(
-              height: 24,
-            ),
+              SizedBox(
+                height: 24,
+              ),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    menuOption("Flights", SimpleLineIcons.plane, true),
-                    SizedBox(width: 24,),
-                    menuOption("Hotels", MaterialCommunityIcons.room_service_outline, false),
-                    SizedBox(width: 24,),
-                    menuOption("Holidays", Feather.sun, false),
-                  ],
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      menuOption("Flights", SimpleLineIcons.plane, true),
+                      SizedBox(width: 24,),
+                      menuOption("Hotels", MaterialCommunityIcons.room_service_outline, false),
+                      SizedBox(width: 24,),
+                      menuOption("Holidays", Feather.sun, false),
+                    ],
+                  ),
 
-                SizedBox(height: 24,),
+                  SizedBox(height: 24,),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    menuOption("Bus", FontAwesome.bus, false),
-                    SizedBox(width: 24,),
-                    menuOption("Cabs", FontAwesome.cab, false),
-                    SizedBox(width: 24,),
-                    menuOption("Trains", MaterialCommunityIcons.train, false),
-                  ],
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      menuOption("Bus", FontAwesome.bus, false),
+                      SizedBox(width: 24,),
+                      menuOption("Cabs", FontAwesome.cab, false),
+                      SizedBox(width: 24,),
+                      menuOption("Trains", MaterialCommunityIcons.train, false),
+                    ],
+                  ),
 
-                SizedBox(height: 24,),
+                  SizedBox(height: 24,),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    menuOption("Homes", AntDesign.home, false),
-                    SizedBox(width: 24,),
-                    menuOption("Gift Cards", MaterialIcons.card_giftcard, false),
-                    SizedBox(width: 24,),
-                    menuOption("More", MaterialIcons.more_horiz, false),
-                  ],
-                )
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      menuOption("Homes", AntDesign.home, false),
+                      SizedBox(width: 24,),
+                      menuOption("Gift Cards", MaterialIcons.card_giftcard, false),
+                      SizedBox(width: 24,),
+                      menuOption("More", MaterialIcons.more_horiz, false),
+                    ],
+                  ),
 
-              ],
-            )
+                ],
+              )
 
-          ],
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: Text(
-        "bottomNavigationBar",
+      
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        child: Container(
+          width: double.infinity,
+          height: 56,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+
+              SizedBox(width: 8,),
+              bottomItem("Home", Icons.home, true),
+              SizedBox(width: 4,),
+              bottomItem("Wallet", SimpleLineIcons.wallet, false),
+              SizedBox(width: 4,),
+              bottomItem("Suitcase", FontAwesome.suitcase, false),
+              SizedBox(width: 4,),
+              bottomItem("Settings", Feather.settings, false),
+              SizedBox(width: 8,),
+
+            ],
+          ),
+        ),
+      )
+    );
+  }
+
+  Widget bottomItem(String title, IconData iconData, bool selected){
+    return Expanded(
+      child: Container(
+        height: 40,
+        decoration: BoxDecoration(
+          color: selected ? Color(0xFFFF5A5F) : Colors.transparent,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: selected ? Color(0xFFFF5A5F).withOpacity(0.2) : Colors.transparent,
+              spreadRadius: 4,
+              blurRadius: 7,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+            Icon(
+              iconData,
+              size: 22,
+              color: selected ? Colors.white : Colors.grey[500],
+            ),
+
+            selected ? SizedBox(
+              width: 4,
+            )
+            : Container(),
+
+            selected ? Text(
+              title,
+              style: TextStyle(
+                color: selected ? Colors.white : Colors.grey[500],
+                fontSize: 14,
+              )
+            )
+            : Container(),
+
+          ],
+        )
       ),
     );
   }
@@ -180,7 +255,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: selected ? Color(0xFFFF5A5F).withOpacity(0.2) : Colors.transparent,
                 spreadRadius: 4,
                 blurRadius: 7,
-                offset: Offset(0, 3), // changes position of shadow
+                offset: Offset(0, 3),
               ),
             ],
           ),
