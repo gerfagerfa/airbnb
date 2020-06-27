@@ -1,3 +1,4 @@
+import 'package:airbnb/recommend_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -34,44 +35,47 @@ class _MyHomePageState extends State<MyHomePage> {
 
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
-        child: Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+        child: Material(
+          elevation: 2,
+          child: Padding(
+            padding: EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
 
-              Icon(
-                Icons.menu,
-                color: Color(0xFFFF5A5F),
-              ),
-
-              SizedBox(
-                height: 70,
-                child: Image.asset(
-                  'assets/images/logo.png',
+                Icon(
+                  Icons.menu,
+                  color: Color(0xFFFF5A5F),
                 ),
-              ),
 
-              Stack(
-                children: <Widget>[
-                  Icon(
-                    Icons.notifications_none,
-                    color: Colors.grey[300],
+                SizedBox(
+                  height: 70,
+                  child: Image.asset(
+                    'assets/images/logo.png',
                   ),
-                  Positioned(
-                    top: 0.0,
-                    right: 0.0,
-                    child: Icon(
-                      Icons.brightness_1, 
-                      size: 8.0, 
-                      color: Color(0xFFFF5A5F),
+                ),
+
+                Stack(
+                  children: <Widget>[
+                    Icon(
+                      Icons.notifications_none,
+                      color: Colors.grey[400],
                     ),
-                  ),
-                ]
-              ),
+                    Positioned(
+                      top: 0.0,
+                      right: 0.0,
+                      child: Icon(
+                        Icons.brightness_1, 
+                        size: 8.0, 
+                        color: Color(0xFFFF5A5F),
+                      ),
+                    ),
+                  ]
+                ),
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -79,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
             children: <Widget>[
 
@@ -158,7 +162,60 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
 
                 ],
+              ),
+
+              SizedBox(
+                height: 24,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "Recommend",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "View all",
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: 16,
+              ),
+
+              Container(
+                height: 130,
+                child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    RecommendCard(
+                      imageUrl: 'assets/images/plane2.jpg',
+                      title: "IndiGo, Spicejet & AirAsia Sale is LIVE!",
+                      offerEnds: "Offer ends in 01d 13h 22m",
+                      startPrices: r"Fares Starting at $890 Only!",
+                    ),
+                    RecommendCard(
+                      imageUrl: 'assets/images/train.jpg',
+                      title: "Irish Rail & Translink discounts!",
+                      offerEnds: "Offer ends in 03d 05h 44m",
+                      startPrices: r"Fares Starting at $199 Only!",
+                    ),
+                  ],
+                ),
               )
+
 
             ],
           ),
