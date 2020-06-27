@@ -240,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
                     RecommendCard(
-                      imageUrl: 'assets/images/plane2.jpg',
+                      imageUrl: 'assets/images/plane.jpg',
                       title: "IndiGo, Spicejet & AirAsia Sale is LIVE!",
                       offerEnds: "Offer ends in 01d 13h 22m",
                       startPrices: r"Fares Starting at $890 Only!",
