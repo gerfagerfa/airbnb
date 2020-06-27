@@ -1,9 +1,9 @@
-import 'package:airbnb/bottom_item.dart';
-import 'package:airbnb/menu_option.dart';
-import 'package:airbnb/recommend_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:airbnb/bottom_item.dart';
+import 'package:airbnb/menu_option.dart';
+import 'package:airbnb/recommend_card.dart';
 
 void main() {
   runApp(MyApp());
