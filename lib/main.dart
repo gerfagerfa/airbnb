@@ -1,3 +1,5 @@
+import 'package:airbnb/bottom_item.dart';
+import 'package:airbnb/menu_option.dart';
 import 'package:airbnb/recommend_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,11 +130,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      menuOption("Flights", SimpleLineIcons.plane, true),
+                      MenuOption(
+                        title: "Flights", 
+                        iconData: SimpleLineIcons.plane, 
+                        selected: true,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("Hotels", MaterialCommunityIcons.room_service_outline, false),
+                      MenuOption(
+                        title: "Hotels", 
+                        iconData: MaterialCommunityIcons.room_service_outline, 
+                        selected: false,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("Holidays", Feather.sun, false),
+                      MenuOption(
+                        title: "Holidays", 
+                        iconData: Feather.sun, 
+                        selected: false,
+                      ),
                     ],
                   ),
 
@@ -140,11 +155,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      menuOption("Bus", FontAwesome.bus, false),
+                      MenuOption(
+                        title: "Bus", 
+                        iconData: FontAwesome.bus, 
+                        selected: false,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("Cabs", FontAwesome.cab, false),
+                      MenuOption(
+                        title: "Cabs", 
+                        iconData: FontAwesome.cab, 
+                        selected: false,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("Trains", MaterialCommunityIcons.train, false),
+                      MenuOption(
+                        title: "Trains", 
+                        iconData: MaterialCommunityIcons.train, 
+                        selected: true,
+                      ),
                     ],
                   ),
 
@@ -153,11 +180,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      menuOption("Homes", AntDesign.home, false),
+                      MenuOption(
+                        title: "Homes", 
+                        iconData: AntDesign.home, 
+                        selected: false,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("Gift Cards", MaterialIcons.card_giftcard, false),
+                      MenuOption(
+                        title: "Gift Cards", 
+                        iconData: MaterialIcons.card_giftcard, 
+                        selected: false,
+                      ),
                       SizedBox(width: 24,),
-                      menuOption("More", MaterialIcons.more_horiz, false),
+                      MenuOption(
+                        title: "More", 
+                        iconData: MaterialIcons.more_horiz, 
+                        selected: false
+                      ),
                     ],
                   ),
 
@@ -233,111 +272,35 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
 
               SizedBox(width: 8,),
-              bottomItem("Home", Icons.home, true),
+              BottomItem(
+                title: "Home", 
+                iconData: Icons.home, 
+                selected: true,
+              ),
               SizedBox(width: 4,),
-              bottomItem("Wallet", SimpleLineIcons.wallet, false),
+              BottomItem(
+                title: "Wallet", 
+                iconData: SimpleLineIcons.wallet, 
+                selected: false,
+              ),
               SizedBox(width: 4,),
-              bottomItem("Suitcase", FontAwesome.suitcase, false),
+              BottomItem(
+                title: "Suitcase", 
+                iconData: FontAwesome.suitcase, 
+                selected: false,
+              ),
               SizedBox(width: 4,),
-              bottomItem("Settings", Feather.settings, false),
+              BottomItem(
+                title: "Settings", 
+                iconData: Feather.settings, 
+                selected: false,
+              ),
               SizedBox(width: 8,),
 
             ],
           ),
         ),
       )
-    );
-  }
-
-  Widget bottomItem(String title, IconData iconData, bool selected){
-    return Expanded(
-      child: Container(
-        height: 40,
-        decoration: BoxDecoration(
-          color: selected ? Color(0xFFFF5A5F) : Colors.transparent,
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: selected ? Color(0xFFFF5A5F).withOpacity(0.2) : Colors.transparent,
-              spreadRadius: 4,
-              blurRadius: 7,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-            Icon(
-              iconData,
-              size: 22,
-              color: selected ? Colors.white : Colors.grey[500],
-            ),
-
-            selected ? SizedBox(
-              width: 4,
-            )
-            : Container(),
-
-            selected ? Text(
-              title,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.grey[500],
-                fontSize: 14,
-              )
-            )
-            : Container(),
-
-          ],
-        )
-      ),
-    );
-  }
-
-  Widget menuOption(String title, IconData iconData, bool selected){
-    return Expanded(
-      child: AspectRatio(
-        aspectRatio: 1,
-        child: Container(
-          decoration: BoxDecoration(
-            color: selected ? Color(0xFFFF5A5F) : Colors.grey[200],
-            borderRadius: BorderRadius.all(
-              Radius.circular(25),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: selected ? Color(0xFFFF5A5F).withOpacity(0.2) : Colors.transparent,
-                spreadRadius: 4,
-                blurRadius: 7,
-                offset: Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                iconData,
-                size: 32,
-                color: selected ? Colors.white : Colors.grey[500],
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Text(
-                title,
-                style: TextStyle(
-                  color: selected ? Colors.white : Colors.grey[500],
-                  fontSize: 18,
-                )
-              )
-            ],
-          )
-        ),
-      ),
     );
   }
 }
