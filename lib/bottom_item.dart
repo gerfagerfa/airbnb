@@ -37,17 +37,15 @@ class BottomItem extends StatelessWidget {
               color: selected ? Colors.white : Colors.grey[500],
             ),
 
-            selected ? SizedBox(
-              width: 4,
-            )
-            : Container(),
-
-            selected ? Text(
-              title,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.grey[500],
-                fontSize: 14,
-              )
+            selected ? Padding(
+              padding: EdgeInsets.only(left: 4),
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                )
+              ),
             )
             : Container(),
 

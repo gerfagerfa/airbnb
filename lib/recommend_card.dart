@@ -35,11 +35,12 @@ class RecommendCard extends StatelessWidget {
               ),
               Container(
                 width: 250,
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: EdgeInsets.all(10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+
                     Text(
                       title,
                       style: TextStyle(
@@ -48,9 +49,11 @@ class RecommendCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+
                     SizedBox(
                       height: 8,
                     ),
+
                     Row(
                       children: <Widget>[
                         Icon(
@@ -72,9 +75,11 @@ class RecommendCard extends StatelessWidget {
                         ),
                       ],
                     ),
+
                     SizedBox(
                       height: 8,
                     ),
+
                     Text(
                       startPrices,
                       style: TextStyle(
@@ -82,6 +87,7 @@ class RecommendCard extends StatelessWidget {
                         fontSize: 12,
                       ),
                     ),
+                    
                   ],
                 ),
               ),
